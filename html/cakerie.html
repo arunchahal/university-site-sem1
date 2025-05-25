@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cakerie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed; 
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'poppins',sans-serif;
+}
+.main{
+    display: flex;
+}
+.sidebar{
+    height: 100%;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2%;
+    background-color: red;
+    color: white;
+}
+.sidebar-menu{
+    display: flex;
+    flex-direction: column;
+}
+.siderbar-menu #home{
+    height: 40px;
+    padding: 5% 8%;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:1rem;
+    text-decoration: none;
+    color: white;
+}
+.sidebar-menu a ,.sidebar-logout a{
+    padding: 5% 8%;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:1rem;
+    text-decoration: none;
+    color: white;
+}
+.sidebar-menu a:hover,.sidebar-logout a:hover{
+    background-color:orange;
+    border-radius: 5px;
+}
+body {
+    
+    background-color: #f8f8f8;
+    background-image: url(https://media.istockphoto.com/id/1200094735/vector/sweet-dessert-background-05.jpg?s=1024x1024&w=is&k=20&c=AwL16K0Okqb8Z47hrPlfFZdUmVYh_oteTVOA5ghu9zw=);
+    color: #333;
+}
+.main{
+    width: 80%;
+    overflow-x: hidden;
+}
+.cakerie{
+    background-color: orange;
+    border-radius: 10px;
+}
+header {
+    
+    width:100vw;
+    /* background-color: #be3030; */
+    color: #ff0000;
+    height:90px;
+    
+}
+header h2{
+    text-align:center;
+    padding:20px;
+}
+
+header h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+.h{background-color: rgb(84, 80, 80);
+height:10px;}
+
+.best-sellers {
+    padding: 20px;
+}
+
+.best-sellers h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #faf8f8;
+}
+
+.items-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.item {
+    background-color: #fff;
+    width: 250px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    height:200px;
+}
+
+.item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #be3030;
+    margin-bottom: 15px;
+}
+
+.order-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: rgb(206, 120, 120);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+    background-color: #be3030;
+}
+
+
+.topicdiv{
+    background-color:rgb(218, 74, 74);
+    border-radius: 2px;
+}
+.Explore{
+    font-size: xx-large;
+    text-decoration:underline;
+}
+.name{
+    height:180px;
+    background-color: rgb(248, 248, 248);
+    color: #333;
+    text-align: right;
+    border: 2px solid #363030;
+}
+@media  screen and (max-width:640px) {
+    .sidebar{
+        display: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="sidebar">
+        <h1>SquareOne</h1>
+        <div class="sidebar-menu">
+            <a class="venky" href="squareonemain.html"><img src="/components/venkys.svg" width="20px" class="home">Venky's</a>
+            <a href="chainagari.html"><img src="/components/chainagri.svg" width="20px" class="home">Chai Nagari</a>
+            <a href="Cakerie/index.html" class="cakerie"><img src="/components/cakerie.svg" width="20px" class="home">The Cakerie</a>
+            <a href="bill.html"> <img src="/components/bill.svg" width="20px">Bills</a>
+            <a href="wallet.html"> <img src="/components/wallet.svg" width="20px">Wallets</a>
+            <a href="table_reservation.html"> <img src="/components/book.svg" width="24px">Book a Table</a>
+            <a href="Contact Us/index.html"><img src="/components/contact.svg" width="20px">Contact Us</a>
+            <a href="#"><img src="/components/setting.svg" width="23px">Settings</a>
+        </div>
+        <div class="sidebar-logout">
+            <a href="login.html"><img src="/components/logout.svg" width="20px">Login</a>
+        </div>
+    </div>
+    <div class="main">
+    <header>
+        <!-- <h2 class="Explore">Explore our best-selling items and order your favorite meal now!</h2> -->
+        <div>
+            <img src="">
+        </div>
+    </header>
+    <div class="h"></div>
+
+    <section class="best-sellers">
+        <div class="topicdiv">
+        <h2 class="topic">ORDERS</h2>
+        </div>
+        <div class="items-container">
+            <div class="item">
+                <img src="https://sallysbakingaddiction.com/wp-content/uploads/2017/01/lemon-loaf-pound-cake-4.jpg" alt="">
+                <h3>New york style lemon pound cake(with egg)</h3>
+                <p class="price"> ₹29.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJfFZzBtm0TgfOb7jgjS15LYF56kHJUG0H_4Ca-4XIvc3tSSzfqDxieYD75J4sbScl2_4&usqp=CAU" alt="">
+                <h3>London Style English Dry fruit cake </h3>
+                <p class="price">₹29.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSggOz-PRzoFxv3i3pXY-ofW8XYZP2zEuXe3qk07HifseZln601AZIStm-f-IDmHUfEwEs&usqp=CAU" alt="">
+                <h3>Honey Almond</h3>
+                <p class="price">₹29.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="item">
+                <img src="https://cdn.igp.com/f_auto,q_auto,t_prodl/products/p-almond-amaze-dry-cake-400-gms--180164-m.jpg" alt="">
+                <h3>Choco chip dry cake</h3>
+                <p class="price">₹49.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <!--<h2>Celebration Cake</h2>-->
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6yhWmlcD8fHWkNE6aBHvTAtidKpve9r_eprOn7q7htEDY9QSWBLzRq9G5Xrrk3QYXVIs&usqp=CAU" alt="">
+                <h3>Black forest </h3>
+                <p class="price">₹359.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="item">
+                <img src="https://flowera.in/uploads/products/Delicious-white-forest-cake.jpg" alt="">
+                <h3>White forest </h3>
+                <p class="price">₹429.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="item">
+                <img src="https://perfectgiftadda.com/wp-content/uploads/2023/09/IMG_9683.png" alt="">
+                <h3>chocolate truffle </h3>
+                <p class="price">₹479.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxnAP8O-i0sjiuQbxh2w87hY0QbWhqbR5e8EznQkzphZ_uaWvVe3GGHuqV2h7lQopXR7A&usqp=CAU" alt="">
+                <h3>Pine apple 1 kg</h3>
+                <p class="price">₹599.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="item">
+                <img src="https://cdn.uengage.io/uploads/7175/image-KYTCID-1687877415.jpg" alt="">
+                <h3>Tiramisu jar</h3>
+                <p class="price">₹110.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2jlbmBKrwRbzgt2WbTjtG8bGakViIKpGmqfQRnyNQF4YIyWkI2mCvYIXXOeBNes-NRao&usqp=CAU" alt="">
+                <h3>red velvet jar</h3>
+                <p class="price">₹99.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+            <div class="item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS38niYy29UCAzKhu9H-PqPDu-QYyHGg1xhSjXodORc6t2-wOyhDK5k4LSD9tCL2k-Fcc4&usqp=CAU" alt="">
+                <h3>cocobrownie jar</h3>
+                <p class="price">₹99.00</p>
+                <button class="order-btn">Order Now</button>
+            </div>
+        </div>
+        </div>
+    </section>
+</div>
+<div class="nav">
+    <nav class="navbar">
+      <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+      <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+      <div class="dropdown">
+          <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+          <div class="dropdown-content">
+              <a href="kalam.html">Kalam Block</a>
+              <a href="cvr.html">CV Raman Block</a>
+              <a href="rj.html">Ramanujan Block</a>
+          </div>
+      </div>
+      <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+      <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+      <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+      <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+      <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+  </nav>
+  </div>
+</body>
+</html>

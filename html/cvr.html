@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.V. Raman Academic Block</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed; 
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .content div {
+            flex: 1;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .content img {
+            width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to the C.V. Raman Academic Block</h1>
+        <p>In honor of the renowned physicist C.V. Raman</p>
+    </header>
+
+    <div class="container">
+        <section id="building">
+            <h2>About the C.V. Raman Academic Block</h2>
+            <div class="content">
+                <div>
+                    <img src="/components/cvr.jpg" alt="Image of the C.V. Raman Academic Block">
+                </div>
+                <div>
+                    <p>The C.V. Raman Academic Block is a modern educational facility dedicated to fostering academic excellence and scientific research. Located at the heart of the campus, this block houses well-equipped classrooms, laboratories, and seminar rooms designed to support the academic and practical needs of students and faculty in the fields of science and technology.</p>
+                    
+                    <p>This academic block is named in honor of C.V. Raman, whose contributions to science continue to inspire innovation and inquiry. The building is an embodiment of the values that Raman stood for: curiosity, discovery, and the pursuit of knowledge. It provides an ideal environment for scientific exploration, collaboration, and learning.</p>
+                    
+                    <p>In addition to its modern infrastructure, the C.V. Raman Academic Block hosts a variety of events, workshops, and conferences aimed at advancing scientific research and education. Students and faculty members engage in cutting-edge research and interact with experts in their fields to push the boundaries of knowledge.</p>
+                </div>
+            </div>
+        </section>
+        <section id="cv-raman">
+            <h2>About C.V. Raman</h2>
+            <div class="content">
+                <div>
+                    <p>C.V. Raman (1888–1970) was an iconic Indian physicist who made groundbreaking contributions to the field of light scattering. His most famous discovery, known as the "Raman Effect," was awarded the Nobel Prize in Physics in 1930. This discovery provided crucial insights into the behavior of light and laid the foundation for the modern study of molecular and atomic interactions.</p>
+
+                    <p>Born in Tamil Nadu, India, Raman exhibited an early interest in science and pursued a career in physics. He made significant advancements in the understanding of the properties of light, sound, and vibrations. The Raman Effect, which explained the change in the frequency of light when scattered by molecules, remains a key principle in optical physics and is widely used in fields like spectroscopy, chemistry, and biology.</p>
+
+                    <p>C.V. Raman's legacy is celebrated around the world, and he is regarded as one of the most influential scientists of the 20th century. His work continues to inspire generations of scientists in India and beyond.</p>
+                </div>
+                <div>
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.IvwmvByJHLQxZ5zEOrKdFgAAAA&pid=Api&P=0&h=180" alt="Portrait of C.V. Raman">
+                </div>
+            </div>
+        </section>
+
+        
+    </div>
+
+    <!-- <footer>
+        <p>&copy; 2024 C.V. Raman Academic Block. All Rights Reserved.</p>
+    </footer> -->
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+</body>
+</html>

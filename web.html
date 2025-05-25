@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitkara University</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: white;
+      padding-bottom: 100px;
+    }
+    .hero {
+      position: relative;
+      background: url('components/main1.jpg') center/cover;
+      padding: 32px 0;
+      color: white;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 24px;
+    }
+
+    .buttons {
+      display: inline-flex;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .primary {
+      background-color: #e40000;
+      color: white;
+      border: none;
+    }
+
+    .outline {
+      background-color: transparent;
+      border: 2px solid #e40000;
+      color: #e40000;
+    }
+    .primary:hover{
+      background-color:transparent;
+      border: 2px solid red;
+      color:red;
+    }
+    .outline:hover {
+      background-color:red;
+    }
+
+    /* Achievements Section */
+    .achievements {
+      padding: 50px 0;
+      background-color: #f9f9f9;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+      border-radius: 20px;
+    }
+
+    .achievements-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .achievement {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 200px;
+      text-align: center;
+    }
+
+    .achievement h3 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #e40000;
+      margin-bottom: 10px;
+    }
+
+    .achievement p {
+      font-size: 1.25rem;
+      color: #333;
+    }
+
+    /* Footer Section */
+    .footer {
+      position: relative;
+      bottom: 0;
+      background-color: #e40000;
+      color: white;
+      padding: 32px 0;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .footer-section h3, .footer-section h4 {
+      color: white;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #f2d6d6;
+    }
+
+    .social-media a {
+      margin-right: 12px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .card-container1{
+      display: grid ;
+      gap: 16px;
+      grid-template-columns: repeat(3, 30vw);
+    }
+
+    .card {
+      background: white;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #F5F5F5, #E0E0E0, #D3D3D3, #C8C8C8, #BFBFBF);
+
+    }
+
+    .card-header {
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 2rem;
+      color: #e40000;
+    }
+
+    .card-content {
+      display: none;
+      justify-items: center;
+    }
+
+    .card:hover .card-content {
+      display: block;
+    }
+    .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed; 
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+            .hero{
+              height: 70vh;
+            }
+            .content h1{
+              font-size:30px;
+            }
+            .content p {
+              font-size: 15px;
+            }
+            .btn{
+              width: 90px;
+              height: 40px;
+              font-size: 12px;
+              padding: 5px;
+            }
+            .achievements center{
+              font-size: 25px !important;
+            }
+            .achievement{
+              height: 100px;
+              width: 25vw;
+            }
+            .achievement h3{
+              font-size: 20px;
+            }
+            .achievement p{
+              font-size: 12px;
+            }
+            .card{
+              height: 200px;
+            }
+            .card:hover .card-content p{
+              display: none;
+            }
+            .card-header h3{
+              font-size: 15px;
+            }
+            .card-header p{
+              font-size: 12px;
+            }
+            .section h2{
+              font-size: 15px;
+            }
+            .card-body h3{
+              font-size: 12px;
+            }
+            .card-body p{
+              font-size: 10px;
+            }
+            .card1 img{
+              width: 150px !important; 
+            }
+            .global-exposure{
+              height: 90vh !important;
+            }
+            .global-exposure h1{
+              font-size: 30px !important;
+            }
+            .clubs-grid{
+              display: grid;
+              grid-template-columns: repeat(2,2fr) !important;
+              gap: 50px !important;
+            }
+            .club-img{
+              width: 80px;
+              height: 80px !important;
+            }
+            .placements h2{
+              font-size: 1.4rem !important;
+            }
+            .placements p{
+              font-size: 12px !important;
+            }
+            .companies img{
+              position: relative;
+              left: -4.7vw;
+              height: 150px;
+              width: 400px !important;
+            }
+            .footer{
+              display: none;
+            }
+            .modal-content h2 {
+              font-size: 15px;
+            }
+          .modal-content p{
+            font-size: 10px !important;
+          } 
+
+        }
+        @media (max-width:300px){
+          .navbar{
+            width: 75vw;
+          }
+          .navbar a{
+                font-size: 14px;
+                margin: 2px;
+            }
+          .dropdown-content{
+              width: 30px;
+            }
+            .hero{
+              height: 70vh;
+            }
+            .content h1{
+              font-size:20px;
+            }
+            .content p {
+              font-size: 15px;
+            }
+            .btn{
+              width: 80px;
+              height: 28px;
+              font-size: 12px;
+              padding: 3px;
+          }
+          .achievement{
+              height: 90px;
+              width: 23vw;
+            }
+            .achievement h3{
+              font-size: 13px;
+            }
+            .achievement p{
+              font-size: 8px;
+              margin-bottom: 5px;
+            }
+            .card-container{
+              display: flex;
+              flex-wrap: wrap;
+            }
+            .card{ 
+              height: 120px;
+              width: 43vw;
+            }
+            .card:hover .card-content p{
+              display: none;
+            }
+            .card-header h3{
+              font-size: 12px;
+            }
+            .card-header p{
+              display: none;
+            }
+            .icon{
+              font-size: 15px;
+            }
+            .card1 img{
+              width: 100px !important; 
+            }
+            .clubs-grid{
+              display: grid;
+              grid-template-columns: repeat(2,2fr) !important;
+              gap: 30px !important;
+            }
+            .club-img{
+              width: 80px;
+              height: 80px !important;
+            }
+            .placements h2{
+              font-size: 1.3rem !important;
+            }
+            .placements p{
+              font-size: 9px !important;
+            }
+            .companies img{
+  width: 200px !important;
+}
+        }
+        .placements {
+    padding: 4rem 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.placements h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #d32f2f;
+}
+.companies img{
+  width: 1000px;
+}
+.placements p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+.dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        .global-exposure {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+    .global-exposure::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/components/int1.jpg') no-repeat center center;
+      background-size: cover;
+      filter: blur(5px); 
+      z-index: 0;
+    }
+
+    .global-exposure .content {
+      text-align: center;
+      z-index: 1;
+      color: white;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.5); 
+      border-radius: 10px;
+    }
+
+    .global-exposure h1 {
+      font-size: 3em;
+      color: #D80000; 
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .global-exposure p {
+      font-size: 1.2em;
+      color: #333;
+      margin: 20px 0;
+      animation: fadeIn 2s ease-in-out 1s; 
+    }
+    .btn-global {
+      padding: 12px 30px;
+      font-size: 1.1em;
+      background-color: #D80000; 
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+
+    .btn-global:hover {
+      transform: scale(1.1); 
+      background-color: #B00000; 
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .section{
+      margin-top: 20px;
+      border-radius: 20px;
+    }
+    .card1{
+      display: flex;
+      align-items: center;
+    }
+    .card1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.6), rgba(72, 161, 255, 0.6)); 
+    z-index: -1;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s ease-out;
+}
+.card1 img{
+  width: 400px;
+  border-radius: 10px;
+  margin: 10px;
+}
+.card1:hover::before {
+    transform: scaleY(1);
+}
+
+.card1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+h1 {
+            text-align: center;
+            color: red;
+            padding: 20px;
+            font-size: 50px;
+        }
+        .clubs-section {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+            padding: 20px;
+        }
+
+        .clubs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 100px;
+        }
+
+        .club img {
+            height: 150px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-btn {
+            font-size: 30px;
+            font-weight: bold;
+            color: red;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
+        .modal-content h2 {
+            color: red;
+        }
+
+        .modal-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .modal-images img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .modal {
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #modal1:target,
+        #modal2:target,
+        #modal3:target,
+        #modal4:target,
+        #modal5:target,
+        #modal6:target,
+        #modal7:target,
+        #modal8:target {
+            display: flex;
+        }
+        .main-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .recruiter-subsection {
+            background-color: #ffffff;
+            padding: 3rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .recruiter-subsection h2 {
+            font-size: 2.5rem;
+            color: #D32F2F;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .recruiter-subsection p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .recruiter-subsection{
+          margin-top: 10px !important;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .recruiter-card {
+            background: linear-gradient(145deg, #ffffff, #f1f1f1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            height: 100%;
+        }
+
+        .recruiter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .recruiter-card-header {
+            font-size: 1.8rem;
+            color: #D32F2F;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .recruiter-card-content {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 1.8rem;
+            line-height: 1.6;
+        }
+
+        .recruiter-card-footer {
+            text-align: center;
+        }
+
+        .recruiter-card-footer a {
+            font-size: 1.1rem;
+            color: #D32F2F;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid #D32F2F;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .recruiter-card-footer a:hover {
+            background-color: #D32F2F;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .main-container {
+                width: 95%;
+            }
+
+            .recruiter-subsection h2 {
+                font-size: 2rem;
+            }
+
+            .recruiter-card-header {
+                font-size: 1.6rem;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .main-container {
+                width: 95%;
+                padding: 1.5rem !important;
+            }
+
+            .recruiter-subsection h2 {
+                font-size: 1.8rem !important;
+            }
+
+            .recruiter-subsection p {
+                font-size: 1rem !important;
+            }
+
+            .recruiter-card {
+              width: 60vw;
+              /* height: 150px; */
+                padding: 1.5rem !important;
+            }
+
+            .recruiter-card-header {
+                font-size: 1.4rem !important;
+            }
+
+            .recruiter-card-content {
+                font-size: 1rem !important;
+            }
+
+            .recruiter-card-footer a {
+                font-size: 1rem !important;
+                padding: 0.4rem 0.8rem  !important;
+            }
+        }
+
+        /* Responsive Design for 300px */
+        @media screen and (max-width: 300px) {
+            .main-container {
+                width: 90%;
+                padding: 1rem;
+            }
+
+            .recruiter-subsection h2 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .recruiter-subsection p {
+                font-size: 0.5rem;
+                text-align: center;
+            }
+
+            .recruiter-card {
+                padding: 1rem;
+            }
+
+            .recruiter-card-header {
+                font-size: 1.2rem;
+            }
+
+            .recruiter-card-content {
+                font-size: 0.9rem;
+            }
+
+            .recruiter-card-footer a {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.7rem;
+            }
+        }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="content">
+        <h1>Explore Your Potential at Chitkara University</h1>
+        <p>Join a community of innovators, leaders, and changemakers. Shape your future with world-class education and unforgettable experiences.</p>
+        <div class="buttons">
+          <button class="btn primary">Schedule a Visit</button>
+          <a href="/html/learnmore.html" class="btn outline">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section id="achievements" class="achievements">
+      <center style="font-size: 30px; font-weight: 800;margin-bottom: 30px;">Achievements</center>
+    <div class="achievements-container">
+        <div class="achievement">
+        <h3><span class="counter" data-target="5000">0</span>+</h3>
+        <p>Students Enrolled</p>
+      </div>
+      <div class="achievement">
+        <h3><span class="counter" data-target="200">0</span>+</h3>
+        <p>Faculty Members</p>
+      </div>
+      <div class="achievement">
+        <h3><span class="counter" data-target="22">0</span>+</h3>
+        <p>Years of Excellence</p>
+      </div>
+    </div>
+  </section>
+  <section class="featured">
+    <h2>Discover</h2>
+    <div class="card-container1">
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">📚</span>
+          <h3>Library</h3>
+          <p>Explore our diverse range of programs</p>
+        </div>
+        <div class="card-content">
+          <p>From liberal arts to cutting-edge STEM fields...</p>
+          <a href="/html/lib1.html" class="btn primary">Learn More</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">💺</span>
+          <h3>Halls</h3>
+          <p>Make the most of your time here</p>
+        </div>
+        <div class="card-content">
+          <p>Join clubs, events, and explore leadership opportunities...</p>
+          <a href="/html/halls.html" class="btn primary">Explore</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">🌍</span>
+          <h3>Campus Life</h3>
+          <p>Experience the best of student living</p>
+        </div>
+        <div class="card-content">
+          <p>Our campus offers everything you need...</p>
+          <a href="/html/campuslife.html" class="btn primary">Take a Tour</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">🏦</span>
+          <h3>Bank</h3>
+          <p>We also have bank at our campus...</p>
+        </div>
+        <div class="card-content">
+          <p>Our campus offers everything you need...</p>
+          <a href="/html/bank.html" class="btn primary">Visit</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">🏢</span>
+          <h3>Hostel Life</h3>
+          <p>We also have bank at our campus...</p>
+        </div>
+        <div class="card-content">
+          <p>Our campus offers everything you need...</p>
+          <a href="/html/hostel.html" class="btn primary">Take a Tour</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="icon">👔</span>
+          <h3>Laundry</h3>
+          <p>We also have bank at our campus...</p>
+        </div>
+        <div class="card-content">
+          <p>Our campus offers everything you need...</p>
+          <a href="/html/laundry.html" class="btn primary">Visit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Rainwater Harvesting Well in Our University</h2>
+    <div class="card-grid">
+        <div class="card1">
+            <img src="components/rwhw1.jpg" alt="Rainwater Harvesting Well">
+            <div class="card-body">
+                <h3>Sustainable Water Management</h3>
+                <p>Our university has implemented a state-of-the-art rainwater harvesting system, ensuring a sustainable and efficient water supply. This initiative helps in conserving water and maintaining a green campus, benefiting both the environment and the community.</p>
+                <a href="/html/water.html" class="btn primary">Know More</a> <!-- Button Added -->
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section class="global-exposure">
+    <div class="content">
+      <h1>Global Exposure</h1>
+      <p>Explore new opportunities and build connections worldwide through our international programs.</p>
+      <a href="/html/international.html" class="btn primary">Office of International Affairs</a>
+    </div>
+  </section>
+  <section class="clubs-section">
+    <h1 id="club">Clubs</h1>
+    <div class="clubs-grid">
+        <div class="club">
+            <a href="#modal1">
+                <img src="components/ncc.jpg" alt="Club 1" class="club-img">
+            </a>
+        </div>
+        <div class="club">
+            <a href="#modal2">
+                <img src="components/nss.jpg" alt="Club 2" class="club-img">
+            </a>
+        </div>
+        <div class="club">
+            <a href="#modal3">
+                <img src="components/acm.jpg" alt="Club 3" class="club-img">
+            </a>
+        </div>
+        <div class="club">
+            <a href="#modal4">
+                <img src="components/cuar.jpg" alt="Club 4" class="club-img">
+            </a>
+        </div>
+        <div class="club">
+            <a href="#modal5">
+                <img src="components/eup.jpg" alt="Club 4" class="club-img">
+            </a>
+        </div>
+        <div class="club">
+            <a href="#modal6">
+                <img src="components/ieee.jpg" alt="Club 4" class="club-img">
+            </a>
+        </div>
+        <div class="club">
+            <a href="#modal7">
+                <img src="components/iste.jpg" alt="Club 4" class="club-img">
+            </a>
+        </div>
+        <div class="club">
+            <a href="#modal8">
+                <img src="components/picit.jpg" alt="Club 4" class="club-img">
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Modals -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <a href="#club" class="close-btn">x</a>
+        <h2>National Cadet Corps</h2>
+        <p style="font-size: 14px;">The NCC is a voluntary organization aimed at instilling discipline, leadership skills, and a sense of responsibility among young people in India. It offers military-style training to students at schools and colleges.</p>
+        <div class="modal-images">
+            <img src="components/ncc1.jpg" alt="Club 1 Image 1">
+            <img src="components/ncc2.jpg" alt="Club 1 Image 2">
+        </div>
+    </div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <a href="#club" class="close-btn">×</a>
+        <h2>National Service Scheme</h2>
+        <p style="font-size: 14px;">NSS is a government-sponsored public service program aimed at developing a sense of social responsibility among students. Volunteers participate in various activities like community service, health campaigns, and rural development.
+
+        </p>
+        <div class="modal-images">
+            <img src="components/nss1.jpg" alt="Club 2 Image 1">
+            <img src="components/nss2.jpg" alt="Club 2 Image 2">
+        </div>
+    </div>
+</div>
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <a href="#club" class="close-btn">×</a>
+        <h2>Association for Computing Machinery</h2>
+        <p style="font-size: 14px;">It aims to advance computing as a science and a profession through educational programs, conferences, publications, and professional development opportunities.</p>
+        <div class="modal-images">
+            <img src="components/acm1.jpg" alt="Club 3 Image 1">
+            <img src="components/acm2.jpg" alt="Club 3 Image 2">
+        </div>
+    </div>
+</div>
+
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <a href="#club" class="close-btn">×</a>
+        <h2>CU-Arcs</h2>
+        <p style="font-size: 14px;">The club organizes a wide range of sports events, tournaments, and recreational activities, offering opportunities for both competitive and casual participation. Whether you're a seasoned athlete or a beginner, CU-ARCS encourages students to stay active, develop their skills, and build lasting friendships through sports</p>
+        <div class="modal-images">
+            <img src="components/cua1.jpg" alt="Club 4 Image 1">
+            <img src="components/cua2.jpg" alt="Club 4 Image 2">
+        </div>
+    </div>
+</div>
+<div id="modal5" class="modal">
+    <div class="modal-content">
+        <a href="#club" class="close-btn">×</a>
+        <h2>Euphony</h2>
+        <p style="font-size: 14px;">Euphony is a vibrant music club at our college, dedicated to celebrating the universal language of music. It brings together students with a passion for all genres, from classical to contemporary, fostering creativity and collaboration.</p>
+        <div class="modal-images">
+            <img src="components/eup1.jpg" alt="Club 4 Image 1">
+            <img src="components/eup2.jpg" alt="Club 4 Image 2">
+        </div>
+    </div>
+</div>
+<div id="modal6" class="modal">
+    <div class="modal-content">
+        <a href="#club" class="close-btn">×</a>
+        <h2>IEEE</h2>
+        <p style="font-size: 14px;">IEEE organize events such as technical workshops, guest lectures, hackathons, coding competitions, and networking opportunities with industry professionals. .</p>
+        <div class="modal-images">
+            <img src="components/ieee1.jpg" alt="Club 4 Image 1">
+            <img src="components/ieee2.jpg" alt="Club 4 Image 2">
+        </div>
+    </div>
+</div>
+<div id="modal7" class="modal">
+    <div class="modal-content">
+        <a href="#club" class="close-btn">×</a>
+        <h2>ISTE</h2>
+        <p style="font-size: 14px;">ISTE organize workshops, seminars, technical talks, coding competitions, and projects, helping students develop practical skills and stay updated on industry trends.</p>
+        <div class="modal-images">
+            <img src="components/iste1.jpg" alt="Club 4 Image 1">
+            <img src="components/iste2.jpg" alt="Club 4 Image 2">
+        </div>
+    </div>
+</div>
+<div id="modal8" class="modal">
+    <div class="modal-content">
+        <a href="#club" class="close-btn">×</a>
+        <h2>Pic-It</h2>
+        <p style="font-size: 14px;">Pic-It brings together students who share a passion for photography, offering a space to explore different techniques, styles, and types of photography.
+            Some Photos:-
+        </p>
+        <div class="modal-images">
+            <img src="components/picit1.jpg" alt="Club 4 Image 1">
+            <img src="components/picit2.jpg" alt="Club 4 Image 2">
+        </div>
+    </div>
+</div>
+
+  <section id="placements" class="placements">
+    <h2>Placements and Top Companies</h2>
+    <p>Chitkara University has a dedicated placement cell that helps students secure jobs with top companies in various fields. The university has an excellent track record for placement, and our students are placed with global giants across industries.</p>
+    
+    <h3>Top Companies Hiring Chitkara Graduates</h3>
+    <div class="companies">
+        <img src="components/comp.png" alt="">
+    </div>
+</section>
+<div class="main-container">
+  <section class="main-content">
+      <section class="recruiter-subsection">
+          <h2>Recruitment Opportunities</h2>
+          <p>Explore various ways to connect with talented students from Chitkara University Choose an opportunity to get started with us.</p>
+
+          <div class="card-container">
+              <div class="recruiter-card">
+                  <div class="recruiter-card-header">
+                      Career Fairs
+                  </div>
+                  <div class="recruiter-card-content">
+                      Meet with hundreds of students from different disciplines at our annual career fairs. It’s the perfect place to network and discover your next hire.
+                  </div>
+                  <div class="recruiter-card-footer">
+                      <a href="#">Learn More</a>
+                  </div>
+              </div>
+              <div class="recruiter-card">
+                  <div class="recruiter-card-header">
+                      Internship & Co-op Programs
+                  </div>
+                  <div class="recruiter-card-content">
+                      Engage with students through internships and co-op programs that allow you to build a pipeline of future employees while providing students with valuable real-world experience.
+                  </div>
+                  <div class="recruiter-card-footer">
+                      <a href="#">Learn More</a>
+                  </div>
+              </div>
+              <div class="recruiter-card">
+                  <div class="recruiter-card-header">
+                      Job Postings
+                  </div>
+                  <div class="recruiter-card-content">
+                      Post job openings for full-time positions, part-time work, and internships. Reach out to our students and connect with qualified candidates.
+                  </div>
+                  <div class="recruiter-card-footer">
+                      <a href="#">Post a Job</a>
+                  </div>
+              </div>
+
+          </div>
+      </section>
+  </section>
+</div>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Academics</h4>
+        <ul>
+          <li><a href="#">Undergraduate Programs</a></li>
+          <li><a href="#">Graduate Programs</a></li>
+          <li><a href="#">Online Courses</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Student Life</h4>
+        <ul>
+          <li><a href="#">Student Portal</a></li>
+          <li><a href="#">Alumni</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Campus Map</a></li>
+          <li><a href="#">Directory</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Chitkara University. All rights reserved.</p>
+    </div>
+  </footer>
+  <div class="nav">
+  <nav class="navbar">
+    <a href="web.html" title="Home"><i class="fas fa-home"></i></a>
+    <a href="/html/squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+    <div class="dropdown">
+        <a href="#" title=""><i class="fas fa-server"></i></a>
+        <div class="dropdown-content">
+            <a href="/html/kalam.html">Kalam Block</a>
+            <a href="/html/cvr.html">CV Raman Block</a>
+            <a href="/html/rj.html">Ramanujan Block</a>
+        </div>
+    </div>
+    <a href="/html/herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+    <a href="/html/zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+    <a href="/html/placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+    <a href="/html/ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+    <a href="/html/dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+</nav>
+</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const counters = document.querySelectorAll('.counter');
+      counters.forEach(counter => {
+        counter.innerText = '0';
+        const target = +counter.getAttribute('data-target');
+        const increment = target / 100;
+        let count = 0;
+
+        const updateCounter = () => {
+          if (count < target) {
+            count += increment;
+            counter.innerText = Math.ceil(count);
+            setTimeout(updateCounter, 20);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCounter();
+      });
+    });
+  </script>
+
+</body>
+</html>

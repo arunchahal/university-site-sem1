@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tagore Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            background-image: url(Recorces/libback.jpg);
+        }
+
+        section {
+            padding: 50px;
+        }
+        .section-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .section-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #d32f2f;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .book-search {
+            margin-bottom: 30px;
+        }
+
+        .book-search input {
+            padding: 12px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            border: 2px solid #d32f2f;
+            width: 100%;
+            max-width: 450px;
+            margin-bottom: 25px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .book-search input:focus {
+            outline: none;
+            border-color: #c62828;
+        }
+        .book-list {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .book-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .book-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .book-card h4 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #d32f2f;
+        }
+
+        .book-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        #book-issue {
+            background-color: #f7f7f7;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .book-form {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            animation: formFadeIn 1s ease-in-out;
+        }
+
+        @keyframes formFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .book-form h3 {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #d32f2f;
+        }
+
+        .book-form label {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .book-form input,
+        .book-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .book-form input:focus,
+        .book-form select:focus {
+            outline: none;
+            border-color: #d32f2f;
+        }
+
+        .book-form button {
+            padding: 15px 25px;
+            background-color: #d32f2f;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .book-form button:hover {
+            background-color: #c62828;
+        }
+
+        .book-form button:active {
+            background-color: #b71c1c;
+        }
+header {
+    background-color: #d32f2f;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #f5f5f5;
+}
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Tagore Library</h1>
+            <nav>
+                <ul>
+                    <li><a href="#library">Library</a></li>
+                    <li><a href="#study-area">Study Area</a></li>
+                    <li><a href="#book-issue">Book Issuance</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="library">
+        <div class="section-card">
+            <div class="content">
+                <h2>About Tagore Library</h2>
+                <p>The Tagore Library in our university is a spacious and well-stocked resource for students, offering a variety of books and study materials.The library houses an extensive collection of books across various disciplines, including literature, science, technology, history, arts, and more. It features both classic and contemporary works, catering to a diverse range of academic needs.
+                    In addition to physical books, the library offers access to digital resources, including e-books, journals, research papers, and databases like JSTOR, IEEE, and others.
+Tagore Library also hosts rare manuscripts, first editions, and historical archives related to Rabindranath Tagore and Indian culture.</p>
+            </div>
+            <img src="/components/lib.jpg" alt="Library Image">
+        </div>
+    </section>
+    <section id="study-area">
+        <div class="section-card">
+            <div class="content">
+                <h2>Study Area</h2>
+                <p>The library provides quiet study areas with ample seating and comfortable lighting for focused work and research.</p>
+            </div>
+            <img src="/components/3h.jpg" alt="Study Area Image">
+        </div>
+    </section>
+
+    <section id="book-issue">
+        <div class="section-card">
+            <div class="content">
+                <i class="icon">📖</i>
+                <h2>Book Issuance</h2>
+                <p>Search for books and request an issuance:</p>
+                <div class="book-search">
+                    <input type="text" id="bookSearchInput" placeholder="Search for a book..." onkeyup="searchBooks()">
+                </div>
+                <div id="bookList" class="book-list">
+                </div>
+                <div class="book-form">
+                    <h3>Request a Book</h3>
+                    <form id="bookIssueForm">
+                        <label for="bookSelect">Select a Book:</label>
+                        <select id="bookSelect" required>
+                        </select>
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" required placeholder="Enter your full name">
+                        <label for="studentID">Student ID:</label>
+                        <input type="text" id="studentID" required placeholder="Enter your student ID">
+                        <button type="submit">Request Book</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+    <script>
+        const books = [
+            { title: "Modern and Computational Physics", author: "Nicolas J. Giardana", availability: "Available", image: "https://www.physics.purdue.edu/~hisao/book/www/cover.jpg" },
+            { title: "Engineering Mathematics-1", author: "Prof RS Acharya", availability: "Available", image: "https://vishwakarmapublications.com/wp-content/uploads/2016/07/Engineering-maths-1_front.jpg" },
+            { title: "Engineering Mathematics-2", author: "T Veerarajan", availability: "Unavailable", image: "https://cdn01.sapnaonline.com/product_media/9789387432345/md_9789387432345.jpg" },
+            { title: "Pride and Prejudice", author: "Jane Austen", availability: "Available", image: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781524861759/pride-and-prejudice-9781524861759_hr.jpg" }
+        ];
+        function displayBooks(books) {
+            const bookList = document.getElementById('bookList');
+            const bookSelect = document.getElementById('bookSelect');
+            bookList.innerHTML = ''; 
+            bookSelect.innerHTML = ''; 
+
+            books.forEach(book => {
+                const bookCard = document.createElement('div');
+                bookCard.classList.add('book-card');
+                bookCard.innerHTML = `
+                    <img src="${book.image}" alt="${book.title}">
+                    <h4>${book.title}</h4>
+                    <p>by ${book.author}</p>
+                    <p><strong>Status:</strong> ${book.availability}</p>
+                `;
+                bookList.appendChild(bookCard);
+
+                const option = document.createElement('option');
+                option.value = book.title;
+                option.textContent = book.title;
+                bookSelect.appendChild(option);
+            });
+        }
+        function searchBooks() {
+            const query = document.getElementById('bookSearchInput').value.toLowerCase();
+            const filteredBooks = books.filter(book => book.title.toLowerCase().includes(query));
+            displayBooks(filteredBooks);
+        }
+        document.getElementById("bookIssueForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const selectedBook = document.getElementById('bookSelect').value;
+            const name = document.getElementById('name').value;
+            const studentID = document.getElementById('studentID').value;
+            alert(`Book Issuance Request
+Book: ${selectedBook}
+Name: ${name}
+Student ID: ${studentID}
+
+Your request has been submitted.`);
+            document.getElementById("bookIssueForm").reset();
+        });
+        displayBooks(books);
+    </script>
+</body>
+</html>

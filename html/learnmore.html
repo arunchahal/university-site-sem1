@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chitkara University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #C8102E;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card h2 {
+            color: #C8102E;
+            transition: color 0.3s ease;
+        }
+        .card:hover h2 {
+            color: #a00d26;
+        }
+        .card p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .card-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .card-image:hover img {
+            transform: scale(1.1);
+        }
+        .card-flip {
+            perspective: 1000px;
+        }
+        .card-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card-flip:hover .card-flip-inner {
+            transform: rotateY(180deg);
+        }
+        .card-flip-front, .card-flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .card-flip-back {
+            background-color: #C8102E;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transform: rotateY(180deg);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #C8102E;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Chitkara University</h1>
+        <p>Empowering Students for a Bright Future</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <div class="card">
+                <h2>Overview</h2>
+                <p>Chitkara University, established in 2002, is a leading private university located in Punjab, India. It is known for its commitment to providing world-class education, advanced research, and practical knowledge.</p>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="/components/kl3.jpg" alt="Chitkara University Campus">
+                </div>
+                <h2>Academics</h2>
+                <p>Chitkara University offers a wide range of academic programs at undergraduate, postgraduate, and doctoral levels. The university ensures high-quality education and skill development.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="card-flip" style="width: 48%; margin-bottom: 20px;">
+                <div class="card-flip-inner">
+                    <div class="card-flip-front" style="background-color: white; padding: 20px; border-radius: 8px;">
+                        <h2>Research and Innovation</h2>
+                        <p>Chitkara University emphasizes research and innovation across all disciplines. It fosters partnerships with industries to bring real-world solutions.</p>
+                    </div>
+                    <div class="card-flip-back">
+                        <p>Our research centers are equipped to handle advanced research in engineering, health sciences, business, and more. Join us for groundbreaking work!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Global Exposure</h2>
+                <p>Chitkara University offers global exposure to its students through partnerships with international universities and organizations. Students can participate in exchange programs and internships abroad.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <div class="card-image">
+                    <img src="/components/comp.png" alt="Alumni Networking">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 20px; font-weight: bold;">
+                        Alumni Network
+                    </div>
+                </div>
+                <p>The alumni network of Chitkara University is strong and continuously growing. Graduates excel worldwide, offering mentorship and career opportunities to students.</p>
+            </div>
+            <div class="card">
+                <h2>Admissions</h2>
+                <p>Chitkara University offers a seamless admissions process, with entrance exams and merit-based selections for various programs. Scholarships and financial aid are available to deserving students.</p>
+            </div>
+        </section>
+    </div>
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+</body>
+</html>

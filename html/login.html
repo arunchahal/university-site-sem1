@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in and Sign-up | Foodie's Paradise</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="main">
+        <img class="chlogo" src="/components/square-one-removebg-preview.png" alt="Foodie Logo" width="171" height="90"> 
+        <nav>
+            <span class="inf1">For order inquiries<br> call us at <br>
+                <p>1800 267 1999</p>
+            </span>
+            <span class="inf2">Customer Support<br>
+                <p>+91 9501105714 <br>+91 9501105715</p>
+            </span>
+            <span class="inf3">North & South Zones<br> please call on<br>
+                <p>+91 9599368734</p>
+            </span>
+            <span class="inf4">East & West Zones<br> Helpline<br>
+                <p>+91 9810355724</p>
+            </span>
+            <span class="inf5">
+                <img src="/components/wa-icon.jpg">
+                <p>WhatsApp: 9859000000</p>
+            </span>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <div class="formcontainer">
+            <div class="signin-signup">
+                <form class="signin">
+                    <h2 class="inH">Sign In to Order</h2> <!-- Updated Header -->
+                    <div class="inputf">
+                        <i class="user">
+                            <img src="/components/user (2).svg" width="20px">
+                        </i>
+                        <input type="text" placeholder="Username">
+                    </div>
+                    <div class="inputf">
+                        <i class="pass">
+                            <img src="/components/padlock.svg" width="20px">
+                        </i>
+                        <input type="password" placeholder="Password"> <!-- Changed to password input -->
+                    </div>
+                    <input type="submit" value="Login" class="sbutton">
+                    <p class="or">Or Sign in with Google</p>
+                    <div class="orbtn">
+                        <img src="/components/search.png" width="30px">
+                        <a href="#" class="gicon">
+                            <i class="ortxt">Sign-in with Google</i>
+                        </a>
+                    </div>
+                </form>
+
+                <form class="signup">
+                    <h2 class="upH">Create a Foodie Account</h2> <!-- Updated Header -->
+                    <div class="inputf">
+                        <i class="user">
+                            <img src="/components/user.svg" width="20px">
+                        </i>
+                        <input type="text" placeholder="Username">
+                    </div>
+                    <div class="inputf">
+                        <i class="pass">
+                            <img src="/components/padlock.svg" width="20px">
+                        </i>
+                        <input type="password" placeholder="Password"> <!-- Changed to password input -->
+                    </div>
+                    <input type="submit" value="Sign Up" class="sbutton">
+                    <p class="or">Or Sign Up with Google</p>
+                    <div class="orbtn">
+                        <img src="/components/search.png" width="30px">
+                        <a href="#" class="gicon">
+                            <i class="ortxt">Sign-Up with Google</i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="pcontainer">
+            <div class="cont leftc">
+                <div class="content">
+                    <h3>Hungry? New here?</h3> <!-- Updated Text -->
+                    <p>Create your account to explore our menu and start ordering delicious meals!</p>
+                    <button class="tbtn" id="signupbtn">Sign Up</button>
+                </div>
+            </div>
+            <div class="cont rightc">
+                <div class="content">
+                    <h3>Already a Foodie?</h3> 
+                    <p>Welcome back! Please enter your credentials to access your account and reorder your favorites.</p>
+                    <button class="tbtn" id="loginbtn">Log-In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Foodie's Paradise. Fresh food delivered to your door!</p> 
+        </div>
+    </footer>
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+    <script>const loginbtn=document.querySelector("#loginbtn");
+        const signupbtn=document.querySelector("#signupbtn");
+        const container=document.querySelector(".container");
+        
+        signupbtn.addEventListener('click', () => {
+            container.classList.add("sign-up-mode");
+        });
+        
+        loginbtn.addEventListener('click', () => {
+            container.classList.remove("sign-up-mode");
+        });</script>
+</body>
+</html>

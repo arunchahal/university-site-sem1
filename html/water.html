@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainwater Harvesting Well in Our University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #a2d7ff, #56c1ff);
+            color: #003366;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        section:hover{
+            transform: scale(1.03);
+        }
+        h2 {
+            text-align: center;
+            color: #005b99;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6em;
+        }
+        .section-image {
+            height:300px;
+            border-radius: 8px;
+            margin: 20px;
+        }
+
+        .advantages ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Rainwater Harvesting Well in Our University</h1>
+    </header>
+
+    <section>
+        <img src="/components/rwhw2.jpg" alt="Rainwater Harvesting System" class="section-image">
+        <div>
+        <h2>What is Rainwater Harvesting?</h2>
+        <p>Rainwater harvesting is the process of collecting and storing rainwater for later use. In many parts of the world, rainwater is used for drinking, irrigation, and other purposes. In our university, we have adopted this method to ensure sustainable water usage and reduce dependence on external water sources.</p>
+        </div>
+    </section>
+
+    <section>
+        <img src="/components/rwhw3.jpg" alt="Rainwater Recharging Well" class="section-image">
+        <div>
+        <h2>Rainwater Recharging Well</h2>
+        <p>The rainwater harvesting well in our university is a key part of our water conservation strategy. This well collects rainwater from rooftops and other surfaces, allowing it to be stored and slowly recharged back into the underground water table. The system helps restore the natural water cycle and ensures that we maintain an adequate water supply.</p>
+        </div>
+    </section>
+
+    <section class="advantages">
+        <img src="/components/rwhw4.jpg" alt="Advantages of Rainwater Harvesting" class="section-image">
+        <div>
+        <h2>Advantages of Rainwater Harvesting</h2>
+        <p>Rainwater harvesting offers numerous benefits, both environmentally and economically. Some of the key advantages include:</p>
+        <ul>
+            <li>Reduces dependence on municipal water supply.</li>
+            <li>Helps in recharging groundwater levels.</li>
+            <li>Minimizes the risk of floods by controlling stormwater runoff.</li>
+            <li>Cost-effective and sustainable water source for irrigation and landscaping.</li>
+            <li>Improves water quality by reducing the risk of contamination from external sources.</li>
+        </ul>
+    </div>
+    </section>
+
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Campus Life - Evergreen College</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .campus-overview {
+            position: relative;
+            background: url(Recorces/cl.jpg)
+             center/cover no-repeat;
+            padding: 80px 0;
+            color: white;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            background-color: white;
+            color: #0066cc;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #f0f0f0;
+        }
+        .facility-section {
+            display: flex;
+            justify-content: center;
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .facility {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .text-content {
+            margin: auto;
+            width: 50%;
+            /* position: relative;
+            left: 200px;
+            top: 100px; */
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            font-size: 1.125rem;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #005bb5;
+        }
+        
+        .image-content {
+            display: flex;
+            width: 90%;
+        }
+        
+        .image-content img {
+            height: 300px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        </style>
+</head>
+
+<body>
+    <section class="campus-overview">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Experience Campus Life at Chitkara University</h1>
+            <p>Discover our vibrant community, state-of-the-art facilities, and the endless opportunities that await you on our beautiful campus.</p>
+            <button class="cta-button">Take a Virtual Tour</button>
+        </div>
+    </section>
+    <section class="facility-section">
+        <div class="container">
+            <div class="facility">
+                <div class="text-content">
+                    <h2>Buildings</h2>
+                    <p>State-of-the-art classrooms and research facilities</p>
+                    <button>Learn More</button>
+                </div>
+                <div class="image-content">
+                    <img src="https://i.ytimg.com/vi/acjgd4AIh3Y/maxresdefault.jpg" alt="Academic Building">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="facility-section">
+        <div class="container">
+            <div class="facility">
+                <div class="image-content c1">
+                    <img src="/components/f2.jpg" alt="Residence Hall" height="200px !important">
+                    <img src="/components/h2.jpg" alt="Residence Hall">
+                </div>
+                <div class="text-content">
+                    <h2>Halls</h2>
+                    <p>Comfortable and modern student housing options</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="facility-section">
+        <div class="container">
+            <div class="facility">
+                <div class="text-content">
+                    <h2>Health Center</h2>
+                    <p>The heart of campus social life and activities</p>
+                    <button>Learn More</button>
+                </div>
+                <div class="image-content c1">
+                    <img src="/components/d9.jpg" alt="Student Center">
+                    <img src="/components/d6.jpg" alt="Student Center">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2024 Evergreen College</p>
+    </footer>
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

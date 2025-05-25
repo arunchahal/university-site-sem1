@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SquareOne</title>
+    <link rel="stylesheet" href="/css/squareonemain.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1>SquareOne</h1>
+        <div class="sidebar-menu">
+            <a class="venky" href="squareonemain.html"><img src="/components/venkys.svg" width="20px" class="home">Venky's</a>
+            <a href="chainagari.html"><img src="/components/chainagri.svg" width="20px" class="home">Chai Nagari</a>
+            <a href="cakerie.html"><img src="/components/cakerie.svg" width="20px" class="home">The Cakerie</a>
+            <a href="bill.html"> <img src="/components/bill.svg" width="20px">Bills</a>
+            <a href="wallet.html"> <img src="/components/wallet.svg" width="20px">Wallets</a>
+            <a href="table_reservation.html"> <img src="/components/book.svg" width="24px">Book a Table</a>
+            <a href="contactus.html"><img src="/components/contact.svg" width="20px">Contact Us</a>
+            <a href="#"><img src="/components/setting.svg" width="23px">Settings</a>
+        </div>
+        <div class="sidebar-logout">
+            <a href="login.html"><img src="/components/logout.svg" width="20px">Login</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main-navbar">
+            <img class="menu-toggle" src="/components/menu.svg" width="20px">
+            <div>
+                <img src="/components/venky2.png" width="100px">
+            </div>
+            <div class="search">
+                <input type="text" placeholder="What you want to eat ?">
+                <button class="search-btn">Search</button>
+            </div>
+            <div class="profile">
+                <a href="#" class="cart"><img src="/components/cart.svg" width="20px"></a>
+                <a href="#" class="user"><img src= "/components/user.svg" width="20px"></a>
+            </div>
+        </div>
+        <div class="main-highlight">
+            <div class="main-header">
+                <h2 class="main-title">Recommendations</h2>
+                <div class="main-arrow">
+                    <img src="/components/back.svg" class="back" width="24px">
+                    <img src="/components/forward.svg" class="next" width="24px">
+                </div>
+            </div>
+            <div class="highlight-wrapper">
+                <div class="highlight-card">
+                    <img src="/components/r1.jpeg" alt="Item" class="highlight-img">
+                <div class="highlight-desc">
+                    <h4>Premium Veg Burger</h4>
+                    <p>Rs. 90</p>
+                </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="/components/r2.jpeg" alt="Item" class="highlight-img">
+                    <div class="highlight-desc">
+                        <h4>Grilled Wrap</h4>
+                        <p>Rs. 165</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="/components/r3.jpeg" alt="Item" class="highlight-img">
+                    <div class="highlight-desc">
+                        <h4>French-Fries</h4>
+                        <p>Rs. 85</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="/components/r4.jpeg" alt="Item" class="highlight-img">
+                    <div class="highlight-desc">
+                        <h4>Nuggets</h4>
+                        <p>Rs. 90</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-menu">
+            <div class="main-filter">
+                <div>
+                    <h2 class="main-title">Menu <br> Category</h2>
+                    <div class="main-arrow">
+                        <img src="/components/back.svg" width="24px" class="back-menu">
+                        <img src="/components/forward.svg" width="24px" class="next-menu">
+                    </div>
+                </div>
+                    <div class="filter-wrapper">
+                        <div class="filter-card">
+                            <div class="filter-icon">
+                                <img src="/components/restaurant.svg" width="24px">
+                            </div>
+                            <p>All Menus</p>
+                        </div>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <img src="/components/burger.svg" width="24px">
+                        </div>
+                        <p>Burger</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <img src="/components/pizza.svg" width="24px">
+                        </div>
+                        <p>Pizza</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <img src="/components/wrap.svg" width="24px">
+                        </div>
+                        <p>Wrap</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <img src="/components/french.svg" width="24px">
+                        </div>
+                        <p>Fries</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <img src="/components/ice-cream.svg" width="24px">
+                        </div>
+                        <p>Ice Cream</p>
+                    </div>
+                    <div class="filter-card">
+                        <div class="filter-icon">
+                            <img src="/components/beverages.svg" width="24px">
+                        </div>
+                        <p>Beverages</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider">
+            <div class="main-detail">
+                <h2 class="main-title">Choose Order</h2>
+                <div class="detail-wrapper">
+                    <div class="detail-card">
+                        <img class='detail-img' src="/components/burger1.webp" alt="Img-1">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Premium Veg Burger</h4>
+                                <p class="detail-sub">We've got the secret to cooking a burger that's crispy on the outside, yet juicy on the inside</p>
+                                <p class="price">Rs 90</p>
+                            </div>
+                            <img src="/components/bookmark.svg" class="detail-favorites" width="24px">
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class='detail-img' src="/components/sq1.jpg" alt="Img-1">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Vegetable biryani</h4>
+                                <p class="detail-sub">Vegetable biryani is a flavorful, spiced rice dish made with a mix of vegetables, aromatic spices, and basmati rice.</p>
+                                <p class="price">Rs 280</p>
+                            </div>
+                            <img src="/components/bookmark.svg" class="detail-favorites" width="24px">
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class='detail-img' src="/components/sq2.jpg" alt="Img-1">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Aloo Tikki</h4>
+                                <p class="detail-sub">Aloo Tikki is a popular Indian snack made from mashed potatoes and spices, shaped into patties and shallow fried until golden and crispy.</p>
+                                <p class="price">Rs 60</p>
+                            </div>
+                            <img src="/components/bookmark.svg" class="detail-favorites" width="24px">
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class='detail-img' src="/components/sq3.jpg" alt="Img-1">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Paneer Wrap</h4>
+                                <p class="detail-sub">A Paneer Wrap is a delicious and filling snack or meal made with paneer (Indian cottage cheese), vegetables, and spices wrapped in a soft flatbread or roti.</p>
+                                <p class="price">Rs 120</p>
+                            </div>
+                            <img src="/components/bookmark.svg" class="detail-favorites" width="24px">
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class='detail-img' src="/components/sq4.jpg" alt="Img-1">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Aloo Nuggets</h4>
+                                <p class="detail-sub">Aloo Nuggets are crispy, bite-sized snacks made with a spiced potato filling and coated in breadcrumbs, perfect for a snack or appetizer.</p>
+                                <p class="price">Rs 80</p>
+                            </div>
+                            <img src="/components/bookmark.svg" class="detail-favorites" width="24px">
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class='detail-img' src="/components/sq5.jpg" alt="Img-1">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Aloo Roll</h4>
+                                <p class="detail-sub">An Aloo Roll (or Aloo Wrap) is a simple, delicious snack made with spiced mashed potatoes, wrapped in a soft roti or paratha.</p>
+                                <p class="price">Rs 90</p>
+                            </div>
+                            <img src="/components/bookmark.svg" class="detail-favorites" width="24px">
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class='detail-img' src="/components/sq6.jpg" alt="Img-1">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Pav Bhaji</h4>
+                                <p class="detail-sub">Pav Bhaji is a popular Indian street food made from a spiced mashed vegetable mixture (bhaji) served with buttered and toasted pav (bread rolls).</p>
+                                <p class="price">Rs 160</p>
+                            </div>
+                            <img src="/components/bookmark.svg" class="detail-favorites" width="24px">
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class='detail-img' src="/components/sq7.jpg" alt="Img-1">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Aloo Garlic Wrap</h4>
+                                <p class="detail-sub">A Masala Chilli Aloo Garlic Wrap is a flavorful, spicy wrap made with crispy, spiced potatoes (masala aloo) and garlic-infused seasoning, all wrapped in a soft flatbread or roti.</p>
+                                <p class="price">Rs 180</p>
+                            </div>
+                            <img src="/components/bookmark.svg" class="detail-favorites" width="24px">
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class='detail-img' src="/components/sq8.jpg" alt="Img-1">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Paneer Veg Nuggets</h4>
+                                <p class="detail-sub">Paneer Veg Nuggets are a delicious, crispy, and flavorful snack made from a combination of paneer (cottage cheese), mixed vegetables, and spices.</p>
+                                <p class="price">Rs 160</p>
+                            </div>
+                            <img src="/components/bookmark.svg" class="detail-favorites" width="24px">
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <img class='detail-img' src="/components/sq9.jpg" alt="Img-1">
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4>Kashmiri Veg Biryani</h4>
+                                <p class="detail-sub">Kashmiri Veg Biryani is a fragrant and slightly sweet variation of biryani from Kashmir</p>
+                                <p class="price">Rs 250</p>
+                            </div>
+                            <img src="/components/bookmark.svg" class="detail-favorites" width="24px">
+                        </div>
+                    </div>
+                </div>
+                
+                <hr class="divider">
+                <footer>
+                    <div class="footer-container">
+                        <div class="footer-section about">
+                            <img src="/components/venky2.png" alt="Restaurant Logo" class="logo">
+                            <p>Serving delicious, freshly-made dishes using locally-sourced ingredients. Available for dine-in, takeout, and delivery.</p>
+                        </div>
+                        
+                        <div class="footer-section links">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="#">Order Now</a></li>
+                                <li><a href="#">Menu</a></li>
+                                <li><a href="#">Special Offers</a></li>
+                                <li><a href="#">Gift Cards</a></li>
+                                <li><a href="#">Locations & Hours</a></li>
+                                <li><a href="#">Catering Services</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                      </div>
+                  
+                      <div class="footer-section customer-service">
+                          <h4>Customer Service</h4>
+                          <ul>
+                              <li><a href="#">FAQs</a></li>
+                              <li><a href="#">Order Tracking</a></li>
+                              <li><a href="#">Refund Policy</a></li>
+                              <li><a href="#">Privacy Policy</a></li>
+                              <li><a href="#">Terms of Service</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-section contact-info">
+                            <h4>Contact Information</h4>
+                            <p>Phone: 958450000</p>
+                            <p>Email: support@chitkarauniversity</p>
+                            <p>Address: Chitkara University, Baddi ,Himachal Pradesh</p>
+                            <a href="#" class="map-link">View on Google Maps</a>
+                      </div>
+                  
+                      <div class="footer-section social-media">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                          <a href="#"><img src="/components/facebook-color-svgrepo-com.svg" alt="Facebook"></a>
+                          <a href="#"><img src="/components/instagram.svg" alt="Instagram"></a>
+                          <a href="#"><img src="/components/twitter.svg" alt="Twitter"></a>
+                          <a href="#"><img src="/components/youtube.svg" alt="YouTube"></a>
+                        </div>
+                        <div class="app-download">
+                          <h4>Download Our App</h4>
+                          <a href="#"><img src="/components/appstore.svg" alt="App Store"></a>
+                          <a href="#"><img src="/components/playstore.svg" alt="Google Play"></a>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <div class="footer-bottom">
+                      <p>© 2023 ONESQUARE. All rights reserved.</p>
+                    </div>
+                  </footer>
+                  
+                </div>
+                <div class="nav">
+                    <nav class="navbar">
+                      <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+                      <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+                      <div class="dropdown">
+                          <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+                          <div class="dropdown-content">
+                              <a href="kalam.html">Kalam Block</a>
+                              <a href="cvr.html">CV Raman Block</a>
+                              <a href="rj.html">Ramanujan Block</a>
+                          </div>
+                      </div>
+                      <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+                      <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+                      <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+                      <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+                      <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+                  </nav>
+                  </div>
+            </div>
+</body>
+</html>

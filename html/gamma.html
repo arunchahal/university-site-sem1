@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamma Zone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed; 
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f5dc, #87cefa);
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #6a5acd, #ff6347);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      text-shadow: 2px 2px #4b0082;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+    .facilities {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .facilities h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #6a5acd;
+      text-shadow: 1px 1px #ff6347;
+    }
+
+    .facility {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .facility:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .facility img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .facility h3 {
+      font-size: 2rem;
+      color: #333;
+      margin: 0 0 10px;
+    }
+
+    .facility p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .facility.basketball {
+      border: 5px solid #ff4500;
+    }
+
+    .facility.basketball h3 {
+      color: #ff4500;
+    }
+
+    .facility.volleyball {
+      border: 5px solid #1e90ff;
+    }
+
+    .facility.volleyball h3 {
+      color: #1e90ff;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+    }
+
+    footer a {
+      color: #ff6347;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gamma Zone</h1>
+    <p>Experience the thrill of basketball and volleyball like never before!</p>
+  </header>
+
+  <section class="facilities">
+    <h2>Our Facilities</h2>
+    <div class="facility basketball">
+      <img src="/components/g2.jpg" alt="Basketball Court">
+      <h3>Basketball Court</h3>
+      <p>
+        Play on our professional-grade basketball court with premium flooring and all-weather compatibility. Perfect for players of all skill levels.
+      </p>
+    </div>
+    <div class="facility volleyball">
+      <img src="/components/g3.jpg" alt="Volleyball Ground">
+      <h3>Volleyball Ground</h3>
+      <p>
+        Spike your way to victory on our regulation-size volleyball court, featuring a sandy surface and high-quality nets for competitive or casual play.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Gamma Zone. All Rights Reserved. | <a href="index.html">Back to Home</a></p>
+  </footer>
+  <div class="nav">
+    <nav class="navbar">
+      <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+      <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+      <div class="dropdown">
+          <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+          <div class="dropdown-content">
+              <a href="kalam.html">Kalam Block</a>
+              <a href="cvr.html">CV Raman Block</a>
+              <a href="rj.html">Ramanujan Block</a>
+          </div>
+      </div>
+      <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+      <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+      <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+      <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+      <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+  </nav>
+  </div>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet - Food Ordering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.main{
+    width: 80vw;
+    margin-left: 15vw;
+}
+.sidebar{
+    height: 100%;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2%;
+    background-color: red;
+    color: white;
+}
+.sidebar-menu{
+    display: flex;
+    flex-direction: column;
+}
+.siderbar-menu #home{
+    height: 40px;
+    padding: 5% 8%;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:1rem;
+    text-decoration: none;
+    color: white;
+}
+.sidebar-menu a ,.sidebar-logout a{
+    padding: 5% 8%;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:1rem;
+    text-decoration: none;
+    color: white;
+}
+.sidebar-menu a:hover,.sidebar-logout a:hover{
+    background-color:orange;
+    border-radius: 5px;
+}
+.venky{
+    background-color: orange;
+    border-radius: 10px;
+}
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.wallet-balance, .loyalty-points, .quick-actions, .transaction-summary, .recent-transactions, .rewards-offers, .payment-methods, .user-settings {
+    animation: fadeIn 0.5s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wallet-balance:hover, .loyalty-points:hover, .quick-actions:hover, .transaction-summary:hover, .recent-transactions:hover, .rewards-offers:hover, .payment-methods:hover, .user-settings:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    width: 100%;
+    background-color: #ff3333;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.header:hover {
+    background-color: #cc0000;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wallet-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1200px;
+    justify-content: space-between;
+}
+
+.wallet-balance, .loyalty-points {
+    background-color: #ffffff;
+    border: 2px solid #ff3333;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wallet-balance h2, .loyalty-points h2 {
+    color: #ff3333;
+}
+.balance-amount, .points {
+    font-size: 2em;
+    color: #333;
+    margin: 10px 0;
+}
+.add-funds-btn, .redeem-points-btn, .action-btn, .add-payment-btn, .settings-btn, .remove-btn {
+    background-color: #ff3333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-funds-btn:hover, .redeem-points-btn:hover, .action-btn:hover, .add-payment-btn:hover, .settings-btn:hover, .remove-btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+.quick-actions, .transaction-summary, .rewards-offers, .payment-methods {
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border: 2px solid #ff3333;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quick-actions h2, .transaction-summary h2, .rewards-offers h2, .payment-methods h2, .recent-transactions h2 {
+    color: #ff3333;
+    margin-bottom: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.action-btn {
+    background-color: #ff3333;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+}
+
+.summary-chart {
+    background-color: #ddd;
+    height: 150px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 1.2em;
+}
+.offer {
+    background-color: #ffeded;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+.payment-method {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.payment-method:last-child {
+    border-bottom: none;
+}
+
+.user-settings {
+    text-align: center;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #ff3333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    transition: background-color 0.3s ease;
+}
+
+.footer:hover {
+    background-color: #cc0000;
+}
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>SquareOne</h1>
+        <div class="sidebar-menu">
+            <a  href="squareonemain.html"><img src="/components/venkys.svg" width="20px" class="home">Venky's</a>
+            <a href="chainagari.html"><img src="/components/chainagri.svg" width="20px" class="home">Chai Nagari</a>
+            <a href="cakerie.html"><img src="/components/cakerie.svg" width="20px" class="home">The Cakerie</a>
+            <a href="bill.html"> <img src="/components/bill.svg" width="20px">Bills</a>
+            <a class="venky" href="wallet.html"> <img src="/components/wallet.svg" width="20px">Wallets</a>
+            <a href="table_reservation.html"> <img src="/components/book.svg" width="24px">Book a Table</a>
+            <a href="contactus.html"><img src="/components/contact.svg" width="20px">Contact Us</a>
+            <a href="#"><img src="/components/setting.svg" width="23px">Settings</a>
+        </div>
+        <div class="sidebar-logout">
+            <a href="login.html"><img src="/components/logout.svg" width="20px">Login</a>
+        </div>
+    </div>
+    <div class="main">
+    <header class="header">
+        <div class="profile">
+            <img src="/components/man.png" alt="User Profile" class="profile-pic" width="40">
+            <h1>Welcome, User!</h1>
+        </div>
+    </header>
+
+    <section class="wallet-container">
+        <div class="wallet-balance">
+            <h2>Wallet Balance</h2>
+            <p class="balance-amount">Rs. 00.00</p>
+            <button class="add-funds-btn" onclick="openModal()">Add Funds</button>
+        </div>
+
+        <div class="loyalty-points">
+            <h2>Loyalty Points</h2>
+            <p class="points">150 Points</p>
+            <button class="redeem-points-btn">Redeem Points</button>
+        </div>
+    </section>
+
+    <section class="quick-actions">
+        <h2>Quick Actions</h2>
+        <div class="action-buttons">
+            <button class="action-btn">Order History</button>
+            <button class="action-btn">Redeem Points</button>
+            <button class="action-btn">Support</button>
+        </div>
+    </section>
+
+    <section class="transaction-summary">
+        <h2>Transaction Summary</h2>
+        <div class="summary-chart">
+            <p>Chart Placeholder (Spend Analysis)</p>
+        </div>
+    </section>
+
+    <section class="rewards-offers">
+        <h2>Rewards & Offers</h2>
+        <div class="offer">
+            <p>Get 10% off your next order! Use code: SAVE10</p>
+        </div>
+        <div class="offer">
+            <p>Earn double points on all orders this weekend!</p>
+        </div>
+    </section>
+
+    <section class="payment-methods">
+        <h2>Payment Methods</h2>
+        <div class="payment-method">
+            <p>Visa - **** 1234</p>
+            <button class="remove-btn">Remove</button>
+        </div>
+        <div class="payment-method">
+            <p>MasterCard - **** 5678</p>
+            <button class="remove-btn">Remove</button>
+        </div>
+        <button class="add-payment-btn">Add New Payment Method</button>
+    </section>
+
+    <section class="user-settings">
+        <button class="settings-btn">Go to Profile Settings</button>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 SquareOne Inc.</p>
+    </footer>
+</div>
+<div class="nav">
+    <nav class="navbar">
+      <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+      <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+      <div class="dropdown">
+          <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+          <div class="dropdown-content">
+              <a href="kalam.html">Kalam Block</a>
+              <a href="cvr.html">CV Raman Block</a>
+              <a href="rj.html">Ramanujan Block</a>
+          </div>
+      </div>
+      <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+      <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+      <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+      <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+      <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+  </nav>
+  </div>
+</body>
+</html>

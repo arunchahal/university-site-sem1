@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalam Block</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed; 
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #00264d, #005580);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        main {
+            padding: 2rem 1rem;
+        }
+
+        h2 {
+            text-align: center;
+            color: #00264d;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .card {
+            position: relative;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            color: #00264d;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 1rem;
+            margin: 0;
+        }
+.gym-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 8rem;
+}
+
+.gym-card-inner {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.gym-card:hover .gym-card-inner {
+    transform: rotateY(180deg);
+}
+
+.gym-card-front, .gym-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.gym-card-front {
+    background: linear-gradient(135deg, rgba(15, 45, 100, 0.8), rgba(25, 55, 125, 0.8)), url('gym.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.gym-card-text h3 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.gym-card-text p {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.gym-card-back {
+    background: #0288d1;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+.gym-card-back h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.gym-card-back p {
+    font-size: 1.1rem;
+}
+        .highlight-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, #9fc5e8, #e0f7fa);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-card img {
+            max-width: 20%;
+            border-radius: 15px;
+        }
+
+        .highlight-card div {
+            max-width: 60%;
+        }
+
+        .highlight-card h3 {
+            color: #00264d;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-card p {
+            color: #555;
+        }
+        footer {
+            background: #00264d;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .highlight-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .highlight-card img {
+                max-width: 100%;
+            }
+
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Kalam Block</h1>
+        <p>Discover facilities inspired by the vision of Dr. A.P.J. Abdul Kalam</p>
+    </header>
+    <main>
+        <section>
+            <h2>About Dr. A.P.J. Abdul Kalam</h2>
+            <div class="highlight-card">
+                <img src="https://i.pinimg.com/originals/e4/5c/e2/e45ce23f335f36efa7a058c682ecfeb3.jpg" alt="Dr. A.P.J. Abdul Kalam">
+                <div>
+                    <h3>A Visionary Leader</h3>
+                    <p>Dr. A.P.J. Abdul Kalam was a distinguished scientist and the 11th President of India. Known as the "Missile Man," he inspired innovation, leadership, and education across generations. Kalam Block reflects his ideals of excellence and ambition.</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Sports Facilities</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="/components/kl2.jpg" alt="Badminton Court">
+                    <div class="card-content">
+                        <h3>Badminton Courts</h3>
+                        <p>Our indoor badminton courts provide an excellent environment for players of all levels.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/components/kl1.jpg" alt="Table Tennis">
+                    <div class="card-content">
+                        <h3>Table Tennis</h3>
+                        <p>Enjoy high-quality table tennis facilities designed for both casual and competitive games.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+<section>
+    <h2>Gym</h2>
+    <div class="gym-card">
+        <div class="gym-card-inner">
+            <div class="gym-card-front">
+                <img src="/components/gym.jpg" alt="Gym">
+                <div class="gym-card-text">
+                    <h3>Gym</h3>
+                    <p>Equipped with advanced fitness machines, our gym caters to all your fitness needs.</p>
+                </div>
+            </div>
+            <div class="gym-card-back">
+                <h3>Get Fit, Stay Healthy</h3>
+                <p>Experience the latest fitness technology, personalized training sessions, and a welcoming environment to achieve your health goals.</p>
+            </div>
+        </div>
+    </div>
+</section>
+        <section>
+            <h2>Computer Labs</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="/components/kl3.jpg " alt="Computer Lab 1">
+                    <div class="card-content">
+                        <h3>Advanced Labs</h3>
+                        <p>Our computer labs are equipped with the latest hardware and software for modern education.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/components/kl4.jpg" alt="Computer Lab 2">
+                    <div class="card-content">
+                        <h3>Research Facilities</h3>
+                        <p>High-speed internet and collaborative spaces make our labs ideal for research and innovation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Kalam Block. All Rights Reserved.</p>
+    </footer>
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+</body>
+</html>

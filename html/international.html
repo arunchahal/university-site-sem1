@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office of International Affairs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding-top: 30px;
+        }
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background-color: #003366;
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+        }
+
+        header p {
+            font-size: 1.5em;
+        }
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #003366;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #003366;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            justify-items: center; 
+            margin-top: 30px;
+        }
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 80vw;
+            height: 300px;
+            border-radius: 15px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            overflow: hidden;
+            position: relative;
+            color: white;
+            padding: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 30%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+        .card-content {
+            padding-left: 20px;
+            flex: 1;
+        }
+
+        .card-content h3 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .card-content p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            color: #e5e5e5;
+        }
+
+        .card-content .animate-text {
+            font-size: 1.1em;
+            margin-top: 20px;
+            color: #ffcc00;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .card:hover .animate-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .card1 {
+            background: linear-gradient(45deg, #003366, #00558b);
+        }
+
+        .card2 {
+            background: linear-gradient(45deg, #ff6f61, #ff9c5b);
+        }
+
+        .card3 {
+            background: linear-gradient(45deg, #8e44ad, #9b59b6);
+        }
+
+        .card4 {
+            background: linear-gradient(45deg, #16a085, #1abc9c);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #003366;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1.1em;
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 90vw;
+            }
+        }
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed; 
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Office of International Affairs</h1>
+        <p>Connecting the world to our university</p>
+    </header>
+    <section>
+        <h2>About Us</h2>
+        <div class="card-container">
+            <div class="card card1">
+                <img src="/components/int4.jpg" alt="Global Partnerships">
+                <div class="card-content">
+                    <h3>Global Partnerships</h3>
+                    <p>We foster global connections by creating strong partnerships with institutions across the world.</p>
+                    <p class="animate-text">Learn More</p>
+                </div>
+            </div>
+
+            <div class="card card2">
+                <div class="card-content">
+                    <h3>Student Exchange</h3>
+                    <p>Our student exchange programs offer valuable cultural and academic experiences internationally.</p>
+                    <p class="animate-text">Join Now</p>
+                </div>
+                <img src="/components/int1.jpg" alt="Student Exchange">
+            </div>
+
+            <div class="card card3">
+                <img src="/components/int2.jpg" alt="International Events">
+                <div class="card-content">
+                    <h3>International Events</h3>
+                    <p>We organize events that bring together students and professionals from all over the world.</p>
+                    <p class="animate-text">Explore Events</p>
+                </div>
+            </div>
+
+            <div class="card card4">
+                <div class="card-content">
+                    <h3>Study Abroad</h3>
+                    <p>Embark on exciting study abroad experiences with universities around the globe.</p>
+                    <p class="animate-text">Discover More</p>
+                </div>
+                <img src="/components/int3.jpg" alt="Study Abroad">
+            </div>
+        </div>
+    </section>
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+</body>
+</html>

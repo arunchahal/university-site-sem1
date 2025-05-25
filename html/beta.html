@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beta Zone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+.hero-section {
+    height: 100vh;
+    color: white;
+    background: url('/components/beta1.jpg') no-repeat center center/cover;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    padding: 10px 20px;
+    background: #ff5722;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: #e64a19;
+}
+
+.main-content {
+    padding: 50px 20px;
+}
+
+.section-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #444;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.read-more {
+    font-size: 1rem;
+    color: #ff5722;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #e64a19;
+}
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 50px;
+}
+
+.footer .social-links a {
+    color: #ff5722;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer .social-links a:hover {
+    color: #e64a19;
+}
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .hero-btn {
+        font-size: 1rem;
+    }
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to Beta Zone</h1>
+            <p>The pulse of creativity and unforgettable events!</p>
+            <a href="#blog-section" class="hero-btn">Explore the Stories</a>
+        </div>
+    </header>
+    <main id="blog-section" class="main-content">
+        <h2 class="section-heading">Latest from Beta Zone</h2>
+        <div class="grid-container">
+            <div class="blog-card">
+                <img src="/components/b3.jpg" alt="Guitar Stage" class="blog-image">
+                <div class="card-content">
+                    <h3>Our Guitar Stage: A Symbol of Music</h3>
+                    <p>Discover the story behind the iconic guitar-shaped stage that defines Beta Zone's creativity.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="/components/b4.jpg" alt="Music Mania" class="blog-image">
+                <div class="card-content">
+                    <h3>Top Moments from Music Mania</h3>
+                    <p>Relive the electrifying highlights of Music Mania 2024 – a celebration of sound and soul!</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="/components/b5.jpg" alt="Upcoming Events" class="blog-image">
+                <div class="card-content">
+                    <h3>Exciting Events Coming Up</h3>
+                    <p>Beta Zone's calendar is packed with thrilling events. Get a sneak peek at what's next!</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 Beta Zone Blog. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+</body>
+</html>

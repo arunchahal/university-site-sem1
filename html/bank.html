@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .card {
+            width: 100%;
+            max-width: 950px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .card img {
+            object-fit: cover;
+            height: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+        .card-content {
+            padding: 20px;
+            width: 60%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-content h3 {
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .card-content p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .card-content .btn {
+            display: inline-block;
+            background-color: #003366;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-content .btn:hover {
+            background-color: #ff9900;
+        }
+        .branch-section {
+            background-color: #e8f4fc;
+        }
+        .about-section {
+            background-color: #f0f8ff;
+            border-left: 5px solid #003366;
+        }
+        .facilities-section {
+            background-color: #f5f5f5;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .facilities-section .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .facilities-section .card-content .icon {
+            font-size: 40px;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+        .atm-section {
+            background-color: #d9f7d9;
+            border-radius: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="card branch-section">
+            <img src="/components/bank2.jpg" alt="UCO Bank Branch">
+            <div class="card-content">
+                <h3>UCO Bank Branch at Our University</h3>
+                <p>We are proud to have a branch of UCO Bank right here on campus! The branch offers a full range of services, including account management, loan assistance, and more, all tailored to the needs of students, staff, and faculty. Whether you're looking to open a savings account or need financial advice, UCO Bank is here to help.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+<div class="card facilities-section">
+    <div class="card-content">
+        <div class="icon">🏦</div>
+        <h3>Facilities & Advantages of Having a Bank on Campus</h3>
+        <p>Having a UCO Bank branch at the university provides several advantages. Students can easily open and manage their accounts, avail loans for education, and make use of various digital banking facilities. The proximity of the bank ensures hassle-free access to banking services, especially during exams or emergencies. Moreover, students can receive financial advice to make sound financial decisions.</p>
+        <a href="#" class="btn">Explore the Advantages</a>
+    </div>
+</div>
+<div class="card atm-section">
+    <img src="/components/bank1.jpg" alt="UCO Bank ATM">
+    <div class="card-content">
+        <h3>UCO Bank ATM at the University</h3>
+        <p>The presence of a UCO Bank ATM on campus adds another layer of convenience for students and staff. With 24/7 access to cash withdrawals, balance inquiries, and more, you no longer have to leave the campus to access your money. The ATM is secure and easily accessible, ensuring you have financial access whenever you need it.</p>
+        <a href="#" class="btn">Find Out More</a>
+    </div>
+</div>
+        <div class="card about-section">
+            <div class="card-content">
+                <h3>About UCO Bank</h3>
+                <p>Founded in 1943, UCO Bank is one of India's leading public sector banks. With a robust history and a wide array of banking services, UCO Bank has become synonymous with trust and reliability. The bank serves millions of customers through its network of branches across India and offers a comprehensive suite of digital banking services as well.</p>
+                <a href="#" class="btn">Discover UCO Bank</a>
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+</body>
+</html>

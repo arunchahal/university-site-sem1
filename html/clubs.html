@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clubs Section</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            color: red;
+            padding: 20px;
+            font-size: 50px;
+        }
+        .clubs-section {
+            padding: 20px;
+        }
+
+        .clubs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .club img {
+            height: 150px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-btn {
+            font-size: 30px;
+            font-weight: bold;
+            color: red;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
+        .modal-content h2 {
+            color: red;
+        }
+
+        .modal-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .modal-images img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .modal {
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #modal1:target,
+        #modal2:target,
+        #modal3:target,
+        #modal4:target,
+        #modal5:target,
+        #modal6:target,
+        #modal7:target,
+        #modal8:target {
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+
+    <section class="clubs-section">
+        <h1>Clubs</h1>
+        <div class="clubs-grid">
+            <div class="club">
+                <a href="#modal1">
+                    <img src="/components/ncc.jpg" alt="Club 1" class="club-img">
+                </a>
+            </div>
+            <div class="club">
+                <a href="#modal2">
+                    <img src="/components/nss.jpg" alt="Club 2" class="club-img">
+                </a>
+            </div>
+            <div class="club">
+                <a href="#modal3">
+                    <img src="/components/acm.jpg" alt="Club 3" class="club-img">
+                </a>
+            </div>
+            <div class="club">
+                <a href="#modal4">
+                    <img src="/components/cuar.jpg" alt="Club 4" class="club-img">
+                </a>
+            </div>
+            <div class="club">
+                <a href="#modal5">
+                    <img src="/components/eup.jpg" alt="Club 4" class="club-img">
+                </a>
+            </div>
+            <div class="club">
+                <a href="#modal6">
+                    <img src="/components/ieee.jpg" alt="Club 4" class="club-img">
+                </a>
+            </div>
+            <div class="club">
+                <a href="#modal7">
+                    <img src="/components/iste.jpg" alt="Club 4" class="club-img">
+                </a>
+            </div>
+            <div class="club">
+                <a href="#modal8">
+                    <img src="/components/picit.jpg" alt="Club 4" class="club-img">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">x</a>
+            <h2>National Cadet Corps</h2>
+            <p>The NCC is a voluntary organization aimed at instilling discipline, leadership skills, and a sense of responsibility among young people in India. It offers military-style training to students at schools and colleges.</p>
+            <div class="modal-images">
+                <img src="Recorces/ncc1.jpg" alt="Club 1 Image 1">
+                <img src="Recorces/ncc2.jpg" alt="Club 1 Image 2">
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">×</a>
+            <h2>National Service Scheme</h2>
+            <p>NSS is a government-sponsored public service program aimed at developing a sense of social responsibility among students. Volunteers participate in various activities like community service, health campaigns, and rural development.
+
+            </p>
+            <div class="modal-images">
+                <img src="Recorces/nss1.jpg" alt="Club 2 Image 1">
+                <img src="Recorces/nss2.jpg" alt="Club 2 Image 2">
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">×</a>
+            <h2>Association for Computing Machinery</h2>
+            <p>It aims to advance computing as a science and a profession through educational programs, conferences, publications, and professional development opportunities.</p>
+            <div class="modal-images">
+                <img src="Recorces/acm1.jpg" alt="Club 3 Image 1">
+                <img src="Recorces/acm2.jpg" alt="Club 3 Image 2">
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">×</a>
+            <h2>CU-Arcs</h2>
+            <p>The club organizes a wide range of sports events, tournaments, and recreational activities, offering opportunities for both competitive and casual participation. Whether you're a seasoned athlete or a beginner, CU-ARCS encourages students to stay active, develop their skills, and build lasting friendships through sports</p>
+            <div class="modal-images">
+                <img src="Recorces/cua1.jpg" alt="Club 4 Image 1">
+                <img src="Recorces/cua2.jpg" alt="Club 4 Image 2">
+            </div>
+        </div>
+    </div>
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">×</a>
+            <h2>Euphony</h2>
+            <p>Euphony is a vibrant music club at our college, dedicated to celebrating the universal language of music. It brings together students with a passion for all genres, from classical to contemporary, fostering creativity and collaboration.</p>
+            <div class="modal-images">
+                <img src="Recorces/eup1.jpg" alt="Club 4 Image 1">
+                <img src="Recorces/eup2.jpg" alt="Club 4 Image 2">
+            </div>
+        </div>
+    </div>
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">×</a>
+            <h2>IEEE</h2>
+            <p>IEEE organize events such as technical workshops, guest lectures, hackathons, coding competitions, and networking opportunities with industry professionals. .</p>
+            <div class="modal-images">
+                <img src="Recorces/ieee1.jpg" alt="Club 4 Image 1">
+                <img src="Recorces/ieee2.jpg" alt="Club 4 Image 2">
+            </div>
+        </div>
+    </div>
+    <div id="modal7" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">×</a>
+            <h2>ISTE</h2>
+            <p>ISTE organize workshops, seminars, technical talks, coding competitions, and projects, helping students develop practical skills and stay updated on industry trends.</p>
+            <div class="modal-images">
+                <img src="Recorces/iste1.jpg" alt="Club 4 Image 1">
+                <img src="Recorces/iste2.jpg" alt="Club 4 Image 2">
+            </div>
+        </div>
+    </div>
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">×</a>
+            <h2>Pic-It</h2>
+            <p>Pic-It brings together students who share a passion for photography, offering a space to explore different techniques, styles, and types of photography.
+                Some Photos:-
+            </p>
+            <div class="modal-images">
+                <img src="Recorces/picit1.jpg" alt="Club 4 Image 1">
+                <img src="Recorces/picit2.jpg" alt="Club 4 Image 2">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramanujan Block</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .navbar {
+            background-color: #ffffff;
+            padding: 15px;
+            display: flex;
+            width: 60vw;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px red;
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+        .nav{
+          display: flex;
+          justify-content: center;
+        }
+        .navbar a:hover::after {
+            content: attr(title);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 20px;
+            }
+        }
+        @media (max-width:300px){
+            .navbar a{
+                font-size: 15px;
+            }
+          }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 0;
+            padding-bottom: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-size: 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: red;
+            color: white;
+        }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d32f2f, #e57373);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-top: 0.5rem;
+        }
+
+        main {
+            padding: 2rem 1rem;
+        }
+
+        h2 {
+            text-align: center;
+            color: #d32f2f;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .card {
+            position: relative;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            color: #d32f2f;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: #555;
+            font-size: 1rem;
+            margin: 0;
+        }
+        .highlight-card {
+            background-color: #fff5f5;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.8rem;
+            color: #d32f2f;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+        footer {
+            background: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .card1 {
+            display: flex;
+            width: 80vw !important;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-img {
+            width: 40%;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        .card-body {
+            padding: 20px;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-body h3 {
+            margin-top: 0;
+            color: #d32f2f;
+        }
+
+        .card-body p {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .btn {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Ramanujam Block</h1>
+        <p>Explore the excellence in education and research</p>
+    </header>
+    <main>
+        <div class="card-container">
+            <div class="card1">
+                <div class="card-img">
+                    <img src="/components/rj.jpg" alt="Ramanujan Academic Block">
+                </div>
+                <div class="card-body">
+                    <h3>Ramanujan Academic Block</h3>
+                    <p>The Ramanujan Academic Block is dedicated to the legacy of the great mathematician, Srinivasa Ramanujan. This modern academic building serves as a hub for learning, research, and innovation, housing state-of-the-art classrooms, seminar rooms, and collaborative spaces.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <section>
+            <h2>Classes at Ramanujam Block</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://www.chitkara.edu.in/wp-content/uploads/2015/03/Model-United-Nations.jpg" alt="Mathematics Classroom">
+                    <div class="card-content">
+                        <h3>Advanced Mathematics</h3>
+                        <p>Study complex mathematical theories with experienced faculty in our state-of-the-art classrooms.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://www.cityairnews.com/uploads/images/image-750x-2023-03-17-04:09:28pm-6414436041d97.jpg" alt="Physics Classroom">
+                    <div class="card-content">
+                        <h3>Physics</h3>
+                        <p>Engage in theoretical and experimental physics in well-equipped labs and lecture halls.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.jFa6rxco99nbU73Kcc213wHaDx&pid=Api&P=0&h=180" alt="Computer Science Classroom">
+                    <div class="card-content">
+                        <h3>Computer Science</h3>
+                        <p>Learn programming, algorithms, and AI with practical sessions in our computer labs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Special Features</h2>
+            <div class="highlight-card">
+                <h3>Innovative Learning</h3>
+                <p>Ramanujan Block fosters an environment of creativity and innovation through hands-on learning and interactive lessons.</p>
+            </div>
+        </section>
+    <footer>
+        <p>© 2024 Ramanujam Block. All Rights Reserved.</p>
+    </footer>
+    <div class="nav">
+        <nav class="navbar">
+          <a href="/web.html" title="Home"><i class="fas fa-home"></i></a>
+          <a href="squareonemain.html" title="SquareOne"><i class="fas fa-utensils"></i></a>
+          <div class="dropdown">
+              <a href="#" title="Infrastructure"><i class="fas fa-server"></i></a>
+              <div class="dropdown-content">
+                  <a href="kalam.html">Kalam Block</a>
+                  <a href="cvr.html">CV Raman Block</a>
+                  <a href="rj.html">Ramanujan Block</a>
+              </div>
+          </div>
+          <a href="herbalgardern.html" title="Herbal Garden"><i class="fas fa-seedling"></i></a>
+          <a href="zones.html" title="Zones"><i class="fas fa-map-marked-alt"></i></a>
+          <a href="placement.html" title="Placement Cell"><i class="fas fa-handshake"></i></a>
+          <a href="ceed.html" title="Ceed"><i class="fas fa-rocket"></i></a>
+          <a href="dispensary.html" title="Dispensary"><i class="fas fa-medkit"></i></a>
+      </nav>
+      </div>
+</body>
+</html>

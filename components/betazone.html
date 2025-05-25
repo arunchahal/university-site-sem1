@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beta Zone Blog</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('b2.jpg') no-repeat center center/cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    padding: 10px 20px;
+    background: #ff5722;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: #e64a19;
+}
+
+/* Blog Section */
+.main-content {
+    padding: 50px 20px;
+}
+
+.section-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+/* Blog Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.read-more {
+    font-size: 1rem;
+    color: #ff5722;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #e64a19;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 50px;
+}
+
+.footer .social-links a {
+    color: #ff5722;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer .social-links a:hover {
+    color: #e64a19;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .hero-btn {
+        font-size: 1rem;
+    }
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to Beta Zone</h1>
+            <p>The pulse of creativity and unforgettable events!</p>
+            <a href="#blog-section" class="hero-btn">Explore the Stories</a>
+        </div>
+    </header>
+
+    <!-- Blog Section -->
+    <main id="blog-section" class="main-content">
+        <!-- <h2 class="section-heading">Latest from Beta Zone</h2> -->
+        <div class="grid-container">
+            <!-- Blog Card 1 -->
+            <div class="blog-card">
+                <img src="guitar-stage.jpg" alt="Guitar Stage" class="blog-image">
+                <div class="card-content">
+                    <h3>Our Guitar Stage: A Symbol of Music</h3>
+                    <p>Discover the story behind the iconic guitar-shaped stage that defines Beta Zone's creativity.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card">
+                <img src="music-mania.jpg" alt="Music Mania" class="blog-image">
+                <div class="card-content">
+                    <h3>Top Moments from Music Mania</h3>
+                    <p>Relive the electrifying highlights of Music Mania 2024 – a celebration of sound and soul!</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card">
+                <img src="upcoming-events.jpg" alt="Upcoming Events" class="blog-image">
+                <div class="card-content">
+                    <h3>Exciting Events Coming Up</h3>
+                    <p>Beta Zone's calendar is packed with thrilling events. Get a sneak peek at what's next!</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Beta Zone Blog. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+</body>
+</html>
